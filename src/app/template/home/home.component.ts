@@ -9,10 +9,11 @@ import { __setFunctionName } from 'tslib';
 export class HomeComponent {
   nomeProduto : string = "Curso de Angular";
   anuncio = `o ${this.nomeProduto} Está em promoção `;
-  idProduto : number = 123;
-  precoProduto : number = 2.59;
+  idProduto : number = 3.5123;
+  precoProduto : number = 2.51;
   promocao : boolean = false;
   foto : string = 'assets/img/crud.png'
+  dataValidade = '2021-12-31'
 
 
   constructor() {
