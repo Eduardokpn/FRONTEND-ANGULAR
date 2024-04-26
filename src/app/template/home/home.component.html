@@ -5,7 +5,7 @@
   <div class="card-body">
     <h5 class="card-title">
 
-      {{nomeProduto}}
+      {{nomeProduto | uppercase}}
       <span *ngIf="promocao == true; else elseBlock" class="badge badge-success" >Promoção</span>
       <ng-template #elseBlock>
         Promoção
