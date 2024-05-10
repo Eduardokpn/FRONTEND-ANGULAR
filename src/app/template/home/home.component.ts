@@ -8,7 +8,7 @@ import { __setFunctionName } from 'tslib';
 })
 export class HomeComponent {
   nomeProduto : string = "Curso de Angular";
-  anuncio = `o ${this.nomeProduto} Está em promoção `;
+  anuncio: string = `o ${this.nomeProduto} Está em promoção `;
   idProduto : number = 3;
   precoProduto : number = 2.51;
   promocao : boolean = false;
