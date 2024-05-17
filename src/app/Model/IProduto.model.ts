@@ -4,7 +4,7 @@ export interface IProduto{
 
   id: number;
   nome: string;
-  validade: Data;
+  validade: Date;
   precoProduto: number ;
 
 
