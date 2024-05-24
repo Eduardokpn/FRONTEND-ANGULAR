@@ -17,6 +17,7 @@ import { SharedModule } from './shared/shared.module';
 import {HttpClientModule} from '@angular/common/http';
 import { Toast, ToastrModule } from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { AtualizarProdutoComponent } from './components/produtos/atualizar-produto/atualizar-produto.component';
 
 
 registerLocaleData(localePt);
@@ -29,6 +30,7 @@ registerLocaleData(localePt);
     HomeComponent,
     ListarprodutosComponent,
     CadastrarprodutoComponent,
+    AtualizarProdutoComponent,
   ],
   imports: [
     BrowserModule,

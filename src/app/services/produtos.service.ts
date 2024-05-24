@@ -12,7 +12,7 @@ export class ProdutosService {
 
 private URL : string = 'http://localhost:3000/produtos';
 
-  constructor(private http: HttpClient, private toastr: ToastrService) {}
+  constructor(private http: HttpClient, private toastr: ToastrService,) {}
 
   buscarTodos() : Observable<IProduto[]>
   {
@@ -22,7 +22,16 @@ private URL : string = 'http://localhost:3000/produtos';
     catchError(erro => this.exibirErro(erro))
 
   );
+  }
 
+  buscarID(id : number) : Observable<IProduto[]>
+  {
+
+  return this.http.get<IProduto[]>(`${this.URL}/${id}`).pipe(
+    map(retorno => retorno),
+    catchError(erro => this.exibirErro(erro))
+
+  );
 
   }
 
@@ -41,12 +50,27 @@ private URL : string = 'http://localhost:3000/produtos';
     this.toastr.show(mensagem, titulo, {closeButton:true, progressBar: true}, tipo);
 
 
+  }
 
-
-
-
+  cadastrar(produto: IProduto): Observable<IProduto>
+  {
+    return this.http.post<IProduto[]>(this.URL, produto).pipe(
+      map(retorno => retorno),
+      catchError(erro => this.exibirErro(erro))
+    );
 
 
   }
+
+  atualizar(produto: IProduto): Observable<IProduto>
+  {
+    return this.http.put<IProduto[]>(`${this.URL, produto}`,produto).pipe(
+      map(retorno => retorno),
+      catchError(erro => this.exibirErro(erro))
+    );
+
+
+  }
+
 
 }
