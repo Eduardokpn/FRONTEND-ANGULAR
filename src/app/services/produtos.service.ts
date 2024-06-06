@@ -64,7 +64,7 @@ private URL : string = 'http://localhost:3000/produtos';
 
   atualizar(produto: IProduto): Observable<IProduto>
   {
-    return this.http.put<IProduto[]>(`${this.URL, produto}`,produto).pipe(
+    return this.http.put<IProduto[]>(`${this.URL}/${produto.id}`,produto).pipe(
       map(retorno => retorno),
       catchError(erro => this.exibirErro(erro))
     );
