@@ -24,7 +24,7 @@ private URL : string = 'http://localhost:3000/produtos';
   );
   }
 
-  buscarID(id : number) : Observable<IProduto[]>
+  buscarID(id : number) : Observable<IProduto>
   {
 
   return this.http.get<IProduto[]>(`${this.URL}/${id}`).pipe(

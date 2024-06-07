@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { IProduto } from 'src/app/Model/IProduto.model';
+import { ProdutosService } from 'src/app/services/produtos.service';
 
 @Component({
   selector: 'app-atualizar-produto',
@@ -8,7 +11,7 @@ import { Component } from '@angular/core';
 export class AtualizarProdutoComponent
   {
 
-    constructor(private produtosService: ProdutosService, private router: Router) {}
+    constructor(private produtosService: ProdutosService, private router: Router, private activateRouter: ActivatedRoute) {}
 
       produto: IProduto = {
         nome: '',
@@ -17,15 +20,23 @@ export class AtualizarProdutoComponent
       };
 
 
-      ngOnInit(): void{}
+      ngOnInit(): void{
+
+        const id = Number(this.activateRouter.snapshot.paramMap.get('id'));
+        this.produtosService.buscarID(id).subscribe(retorno => { this.produto = retorno; });
+
+
+      }
+
+
 
       salvarProduto(): void
        {
-          this.produtosService.cadastrar(this.produto).subscribe(retorno => {
+          this.produtosService.atualizar(this.produto).subscribe(retorno => {
             this.produto = retorno;
             this.produtosService.exibirMensagem(
               'Sistema',
-              `${this.produto.nome} foi cadastrado com sucesso. ID: ${this.produto.id}`,
+              `${this.produto.nome} foi atualizado com sucesso. ID: ${this.produto.id}`,
               'toast-success'
             );
             this.router.navigate(['/produtos'])
@@ -33,11 +44,8 @@ export class AtualizarProdutoComponent
 
 
 
-          });
+          })
 
 
        }
-
-
-  }
-
+      }
