@@ -72,5 +72,13 @@ private URL : string = 'http://localhost:3000/produtos';
 
   }
 
+  excluir (produto: IProduto): Observable<IProduto>
+  {
+    return this.http.delete<any>(`${this.URL}/${produto.id}`).pipe(
+      map(retorno => retorno),
+      catchError(erro => this.exibirErro(erro))
+    );
+  }
+
 
 }

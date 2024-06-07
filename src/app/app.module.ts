@@ -19,6 +19,7 @@ import { Toast, ToastrModule } from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AtualizarProdutoComponent } from './components/produtos/atualizar-produto/atualizar-produto.component';
 
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 registerLocaleData(localePt);
 
@@ -40,6 +41,9 @@ registerLocaleData(localePt);
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    SweetAlert2Module,
+    SweetAlert2Module.forRoot(),
+    SweetAlert2Module.forChild({ /* options */})
 
   ],
   providers: [
